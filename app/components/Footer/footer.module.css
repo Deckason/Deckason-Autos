@@ -1,0 +1,148 @@
+.footer{
+    width: 100%;
+    height: auto;
+    background: var(--black);
+    margin-top: 1rem;
+    padding-top: 20px;
+    padding-bottom: 3rem;
+}
+
+.footer .footer_socials{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer h1{
+    color: #fff;
+}
+
+.footer .footer_socials a{
+    height: 30px;
+    width: 30px;
+    margin-bottom: 1rem;
+}
+
+.footer_socials .icon{
+    width: 100%;
+    height: 100%;
+    color: #fff;
+}
+
+.footer .footer_others{
+    border-top: 1px solid grey;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 1.5rem;
+    gap: 1rem;
+}
+
+.contact, .link, .categories{
+    width: 350px;
+    display: flex;
+    gap: 1rem;
+    flex-grow: 1;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.contacts{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    color: #fff;
+    opacity: .8;
+}
+
+.contacts p{
+    cursor: pointer;
+    display: flex;
+    gap: .5rem;
+}
+
+.contacts p:hover{
+    letter-spacing: .1rem;
+    transition: .5s;
+}
+
+.footer_others li a{
+    color: #fff;
+    opacity: .8;
+}
+
+.footer_others li a:hover{
+    letter-spacing: .1rem;
+    transition: .5s;
+}
+
+.links{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    color: #fff;
+    opacity: .8;
+}
+
+.links li{
+    display: flex;
+    width: 150px;
+}
+
+.category{
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+    color: #fff;
+    opacity: .8;
+}
+
+.category li{
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 1px;
+    background: #1f1d1d;
+}
+
+.footer .footer_copyright{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+    border-top: 1px solid grey;
+}
+
+@media screen and (max-width: 768px) {
+    .category li{
+        justify-content: flex-start;
+    }
+}
+
+@media screen and (max-width: 300px) {
+
+    .contact, .link, .categories{
+        width: 200px;
+    }
+    .footer_others h1{
+        font-size: medium;
+    }
+
+    .footer_others p,
+    .footer_others a{
+        font-size: smaller;
+    }
+
+    .footer_copyright p{
+        font-size: xx-small;
+    }
+}

@@ -1,0 +1,73 @@
+.bottomNav{
+    position: fixed;
+    width: 100%;
+    background: var(--white);
+    bottom: 0;
+    box-shadow: 0 -.5px 5px #bebebe;
+    z-index: 10;
+    display: none;
+    justify-content: space-around;
+    padding-top: 1px;
+    background-color: white;
+}
+
+.bottom_nav_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+
+.bottom_nav_box a,
+.extras{
+    color: var(--grey);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.bottom_nav_box a p,
+.extras p{
+    font-size: large;
+}
+
+.bottom_nav_box a:active{
+    color: var(--button-bg);
+}
+
+.bottom_nav_box .active{
+    color: var(--button-bg);
+}
+
+.nigerFlag{
+    width: 2rem;
+    object-fit: cover;
+}
+
+
+@media only screen and (max-width: 768px){
+    .bottomNav{
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 450px){
+    .bottom_nav_box a,
+    .extras{
+        font-size: 1.5rem;
+    }
+
+    .bottom_nav_box a p,
+.extras p{
+    font-size: small;
+}
+
+.nigerFlag{
+    width: 1.5rem;
+}
+
+}

@@ -1,0 +1,19 @@
+.checkBox_buttons_container{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.checkBox_button_wrapper{
+    display: flex;
+    gap: 1rem;
+}
+
+.checkBox[type="checkBox"] {
+    accent-color: var(--button-bg);
+    cursor: pointer;
+}
+
+.checkBox[type="checkBox"]:hover {
+    accent-color: var(--button-bg-hover);
+}

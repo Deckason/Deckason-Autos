@@ -1,0 +1,30 @@
+.search_input{
+    border: 1px solid var(--grey);
+    color: var(--grey);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    height: 2rem;
+    margin: 0 .2rem;
+}
+
+.search_input input{
+    border: none;
+    outline: none;
+}
+
+.search_input input,
+.search_input .searchIcon{
+    height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .search_input .searchIcon{
+        width: 20%;
+        height: 70%;
+    }
+    .search_input input{
+        width: 80%;
+    }
+}

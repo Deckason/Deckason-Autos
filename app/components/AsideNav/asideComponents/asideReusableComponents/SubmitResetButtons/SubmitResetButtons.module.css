@@ -1,0 +1,8 @@
+.reset_submit_buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.reset_submit_buttons button{
+    width: 30%;
+}

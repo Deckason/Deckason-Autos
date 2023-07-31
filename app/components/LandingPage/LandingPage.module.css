@@ -1,0 +1,334 @@
+.landing_page{
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    background: #fff;
+    /* margin-bottom: 1rem; */
+    padding: 3rem 0;
+    /* border: 1px solid red; */
+}
+
+.landingPage_text_container{
+    position: relative;
+    z-index: 2;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-top: 3rem; */
+    /* border: 1px solid green; */
+}
+
+.text_container{
+    /* padding-left: 1rem; */
+    padding: 1rem;
+    box-shadow: -.5px .5px 2px rgb(219, 215, 215);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+    width: 80%;
+    /* height: 65%; */
+    /* padding-bottom: .5rem; */
+    /* border: 1px solid blue; */
+}
+
+.text_container p{
+    color: #E64F20;
+    font-size: 1.5rem;
+}
+
+.text_container h1{
+    width: 70%;
+    font-size: 3rem;
+}
+
+.text_container h3{
+    width: 80%;
+    line-height: 1.5rem;
+    
+}
+
+.buy_sell_car{
+    background: #EDF0FA;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.buy_sell_car button{
+    width: 5rem;
+}
+
+.auto_Finance{
+    position: absolute;
+    right: -25%;
+    /* top: 40%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    aspect-ratio: 1;
+    border-bottom: .5rem solid var(--button-bg);
+    border-left: .5rem solid var(--button-bg);
+    border-radius: 50%;
+    background: var(--white);
+}
+
+.auto_Finance h3{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 50%;
+}
+
+.landingPage_img_container{
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 90%;
+    /* border: 3px solid teal; */
+}
+
+.img_container{
+    width: 100%;
+    height: 100%;
+}
+
+.img{
+    height: 100%;
+    object-fit: cover;
+    clip-path: polygon(15% 0%, 100% 0, 100% 100%, 40% 100%);
+} 
+
+
+
+/* DESKTOP SCREENS */
+@media screen and (min-width:1300px){
+    .text_container{
+        padding: 2rem;
+        gap: 2rem;
+    }
+
+    .text_container p{
+        color: #E64F20;
+        font-size: 2rem;
+    }
+    
+    .text_container h1{
+        width: 70%;
+        font-size: 5rem;
+    }
+    
+    .text_container h3{
+        width: 80%;
+        line-height: 2rem;
+    }
+
+    .buy_sell_car{
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+    
+    .buy_sell_car button{
+        width: 10rem;
+        font-size: larger;
+    }
+
+    .auto_Finance h3{
+        font-size: xx-large;
+    }
+}
+
+/* LARGE LAPTOP SCREENS */
+@media only screen and (max-width: 1299px){
+    .auto_Finance h3{
+        font-size: x-large;
+    }
+}
+
+/* LAPTOP SCREENS */
+@media only screen and (max-width: 1109px){
+  .img{
+        clip-path: polygon(10% 0%, 100% 0, 100% 100%, 30% 100%);
+    }
+    
+    .auto_Finance{
+        right: -20%;
+    }
+}
+
+/* TABLET SCREENS */
+@media only screen and (max-width: 991px){
+    .auto_Finance h3{
+        font-size: large;
+    }
+}
+
+/* MOBILE SCREENS */
+@media only screen and (max-width: 767px){
+    .landingPage_text_container{
+        width: 100%;
+        height: 100%;
+    }
+
+    .landingPage_img_container{
+        display: none;
+    }
+    .auto_Finance{
+        display: none;
+    }
+
+    
+.text_container{
+    box-shadow: none;
+    justify-content: center;
+}
+
+    
+    .text_container p{
+        font-size: 1rem;
+    }
+    
+    .text_container h1{
+        width: 100%;
+        font-size: 2rem;
+    }
+    
+    .text_container h3{
+        width: 100%;
+        line-height: 1rem;
+        
+    }
+    
+    .buy_sell_car{
+        padding: .5rem;
+        gap: 1rem;
+    }
+    
+    .buy_sell_car button{
+        width: 4rem;
+    }
+    
+}
+
+
+/* @media screen and (min-height: 768px) {  
+    .landing_page{
+        height: auto;
+    }
+} */
+
+
+
+/* ///////////////// MEDIA 768PX //////////// */
+/* @media screen and (max-width: 768px) {   
+    .landing_page .landingPage_text_container{
+        width: 50%;
+    }
+
+    .landing_page .landingPage_img_container{
+        width: 60%;
+    }
+
+    .landingPage_text_container .text_container{
+        padding-left: .5rem;
+        align-items: center;
+        width: 100%;
+        height: 85%;
+    }
+
+    .text_container h1{
+        width: 85%;
+        font-size: 2.5rem;
+    }
+
+    .text_container h3{
+        width: 90%;
+        line-height: 1.5rem;
+        
+    }
+
+    .text_container .buy_sell_car{
+        width: 80%;
+    }
+
+    .buy_sell_car button{
+        width: 6rem;
+        padding: .3rem;
+    }
+
+    .landingPage_text_container .auto_Finance{
+        width: 35%;
+        aspect-ratio: 1;
+    }
+
+    .auto_Finance h3{
+        font-size: medium;
+    }
+
+    .img{
+        clip-path: polygon(13% 0%, 100% 0, 100% 100%, 30% 100%);
+    }
+} */
+
+
+/* //////////////////////// MEDIA 500PX ////////////////// */
+/* @media screen and (max-width: 500px) {
+    .landing_page .landingPage_text_container{
+        width: 100%;
+    }
+
+    .landingPage_text_container .text_container{
+        padding-left: .5rem;
+        align-items: center;
+        width: 100%;
+        height: 80%;
+    }
+
+    .text_container .buy_sell_car{
+        justify-content: space-around;
+    }
+
+    .landing_page .landingPage_img_container{
+        display: none;
+    }
+
+    .landingPage_text_container .auto_Finance{
+        display: none;
+    }
+} */
+
+/* /////////////////////// MEDIA 320PX /////////////// */
+/* @media screen and (max-width: 320px) {
+        .landing_page .landingPage_text_container{
+            height: 100vh;
+        }
+
+        .landingPage_text_container .text_container{
+            gap: .5rem;
+        }
+
+        .text_container p{
+            font-size: medium;
+        }
+
+        .text_container h1{
+            font-size: x-large;
+        }
+
+        .text_container h3{
+            font-size: medium;
+        }
+
+        .buy_sell_car button{
+            width: 4rem;
+            padding: .1rem;
+        }
+} */

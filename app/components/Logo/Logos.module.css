@@ -1,0 +1,97 @@
+.logo{
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    background: linear-gradient(to bottom right, rgb(236, 234, 234), #fff);
+    /* border: 1px solid red; */
+}
+
+.logo .background_text{
+    left: 1rem;
+    top: 0;
+    opacity: 0.05;
+    position: absolute;
+    font-size: 5rem;
+    letter-spacing: 1rem;
+    
+ }
+
+ .logo .model_section{
+    width: 90%;
+    /* border: 1px solid red; */
+ }
+ .model_section h1{
+    padding: 1rem;
+ }
+
+.logo_container{
+    /* border: 1px solid red; */
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    
+  }
+
+  .logo_container .logo_img_container{
+    width: 100px;
+    height: 100px;
+    flex-grow: 1;
+    background: #fff;
+    box-shadow: -1px 1px 10px rgb(204, 197, 197);
+  }
+
+  .logo_container .logo_img_container:nth-child(odd){
+    width: 75px;
+    aspect-ratio: 1;
+  }
+
+
+  /* //////////////////////// MEDIA 650PX ///////////////////// */
+  @media screen and (max-width: 650px) {
+    .logo .background_text{
+       font-size: 3rem;
+       letter-spacing: 1rem;
+    }
+  
+   .model_section h1{
+    font-size: large;
+ }
+}
+
+@media screen and (max-width: 425px) {
+    .logo .background_text{
+       font-size: 2rem;
+       letter-spacing: .5rem;
+    }
+
+    .model_section h1{
+        font-size: medium;
+     }
+}
+
+@media screen and (max-width: 375px) {
+    .logo .background_text{
+       font-size: 1rem;
+       letter-spacing: 1rem;
+    }
+
+    .model_section h1{
+        font-size: small;
+     }
+
+}
+
+@media screen and (max-width: 230px) {
+    .logo .background_text{
+       font-size: 1rem;
+       letter-spacing: 0;
+    }
+ 
+    .model_section h1{
+       font-size: smaller;
+    }
+}

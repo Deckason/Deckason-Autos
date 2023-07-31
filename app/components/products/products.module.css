@@ -1,0 +1,237 @@
+.products_wrapper{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+ .products_wrapper .background_text{
+    left: 1rem;
+    top: 0;
+    opacity: 0.1;
+    position: absolute;
+    font-size: 4rem;
+   letter-spacing: .5rem;
+ }
+
+ .products_wrapper .products_section{
+    width: 90%;
+    margin-top: 2rem;
+ }
+
+ .products_section .head_section{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+ }
+
+ .head_section a{
+    color: var(--button-bg);
+    display: flex;
+    gap: .5rem;
+    font-weight: 700;
+ }
+
+ .head_section a:hover{
+   color: #fa3b01;
+ }
+
+ .products_section .products{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    /* grid-template-columns: repeat(4,1fr); */
+    /* gap: 1rem; */
+ }
+
+ .products > .product_card{
+    width: 300px;
+    margin: 5px;
+    height: 20rem;
+    border-radius: 5px;
+    flex-grow: 1;
+    overflow: hidden;
+    box-shadow: -.5px .5px 5px rgb(211, 207, 207);
+    background: var(--white);
+ }
+
+ .img_wrapper{
+    width:100%;
+ }
+ .product_card .product_img{
+    position: relative;
+    width: 100%;
+    height: 65%;
+    
+ }
+
+
+ .product_img .price_tag{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    background: var(--black);
+    color: var(--white);
+    padding: .2rem .5rem;
+ }
+
+ .product_card .product_description{
+    width: 100%;
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: .5rem;
+ }
+
+ .product_description .other_details{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* grid-template-columns: repeat(2, 1fr);
+    column-gap: 2.5rem;
+    row-gap: .2rem; */
+ }
+
+ .other_details .left_details,
+ .other_details .right_details{
+    width: 50%;
+ }
+
+ .other_details .right_details{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+ }
+
+ .other_details p{
+    color: var(--grey);
+    padding: 2px;
+    display: flex;
+    align-items: center;
+ }
+
+ .product_description .price{
+    display: flex;
+    justify-content: space-between;
+ }
+
+ .price p{
+    display: flex;
+    align-items: center;
+    color: var(--button-bg);
+    font-weight: bolder;
+ }
+
+ .price button{
+    width: 10rem;
+ }
+
+ @media screen and (max-width: 650px) {
+   .products_wrapper .background_text{
+      font-size: 3rem;
+      letter-spacing: 1rem;
+   }
+
+   .products_section .head_section{
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem;
+   }
+
+   .head_section h1{
+      font-size: large;
+   }
+  
+   .head_section a{
+      /* color: var(--button-bg); */
+      /* display: flex; */
+      gap: .5rem;
+      font-weight: 400;
+   }
+}
+
+@media screen and (max-width: 425px) {
+   .products_wrapper .background_text{
+      font-size: 2rem;
+      letter-spacing: .5rem;
+   }
+
+   .products_section .head_section{
+      padding: .5rem;
+   }
+
+   .head_section h1{
+      font-size: medium;
+   }
+
+   .head_section a{
+      /* color: var(--button-bg); */
+      /* display: flex; */
+      gap: .5rem;
+      font-weight: 200;
+   }
+   
+}
+
+@media screen and (max-width: 375px) {
+   .products_wrapper .background_text{
+      font-size: 1rem;
+     letter-spacing: 1rem;
+   }
+
+   .head_section h1{
+      font-size: small;
+   }
+
+   .head_section a{
+      /* color: var(--button-bg); */
+      /* display: flex; */
+      gap: .5rem;
+      font-weight: 100;
+      font-size: smaller;
+   }
+
+   .products_wrapper .products_section{
+      width: 90%;
+      margin-top: 1rem;
+   }
+
+   .product_description .price{
+      display: flex;
+      justify-content: space-between;
+   }
+  
+   .price p{
+      font-size: smaller;
+      font-weight: 800;
+   }
+  
+   .price button{
+      width: 5rem;
+   }
+
+}
+
+@media screen and (max-width: 230px) {
+   .products_wrapper .background_text{
+      font-size: 1rem;
+      letter-spacing: 0;
+   }
+
+   .head_section h1,
+   .head_section a{
+      font-size:x-small;
+   }
+
+   .head_section a{
+      /* color: var(--button-bg); */
+      /* display: flex; */
+      gap: 0;
+      font-weight: 0;
+      font-size: smaller;
+   }
+}

@@ -1,0 +1,43 @@
+.extras{
+    position: absolute;
+    background: var(--white);
+    height: 80vh;
+    width: 100%;
+    z-index: 5;
+    overflow: scroll;
+    border-top: 1px solid var(--grey);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.extras::-webkit-scrollbar{
+    color: var(--button-bg);
+}
+
+.open_extras{
+    top: -80vh;
+    transition: .3s ease-in-out;
+}
+
+.close_extras{
+    top: 15vh;
+    transition: .3s ease-in-out;
+}
+
+.close_icon{
+    color: var(--button-bg);
+    font-size: larger;
+    margin: .5rem 0 0 .5rem;
+    cursor: pointer;
+}
+
+
+@media only screen and (min-height: 800px) {
+    .extras{
+        height: 50vh;
+    }
+
+    .open_extras{
+        top: -50vh;
+    }
+}

@@ -1,0 +1,22 @@
+.min_max_input{
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.min_max_input input{
+    width: 40%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-bottom: 1px solid var(--grey);
+    outline: none;
+}
+
+.min_max_input input::placeholder{
+    text-align: center;
+}
+
+.min_max_input input:focus{
+    text-align: center;
+}
