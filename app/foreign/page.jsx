@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { query, where } from "firebase/firestore";
 
 const ForeignUsed = () => {
-
+// 
     const [products, setProducts] = useState([])
     const { getDocument, collectionRef} = useAppContext() 
 
