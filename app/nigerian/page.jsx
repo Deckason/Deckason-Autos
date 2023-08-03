@@ -4,22 +4,24 @@ import AsideNav from "../components/AsideNav/AsideNav";
 import Products from "../components/products/Products";
 import { useEffect, useState } from "react";
 import { useAppContext } from "../context/ContextProvider";
-import { query, where } from "firebase/firestore";
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 
 const ForeignUsed = () => {
 
     const [products, setProducts] = useState([])
-    const { getDocument, collectionRef} = useAppContext() 
+    // const { getDocument, collectionRef} = useAppContext() 
+    const db = getFirestore()
+    const collectionRef = collection(db, "Cars")
 
     const getProducts = async ()=>{
       const q = query(collectionRef, where("condition", "==", "Nigerian used"))
-        let carDocs = []
+      let carProducts = []
         try {
-            const snapshot = await getDocument(q)
+            const snapshot = await getDocs(q)
             snapshot.docs.forEach(product => {
-                carDocs.push({...product.data(), id: product.id})
+                carProducts.push({...product.data(), id: product.id})
             });
-            setProducts(carDocs)
+            setProducts(carProducts)
         } catch (error) {
             console.log(error)
         }

@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import { useAppContext } from "@/app/context/ContextProvider"
 import { useRouter } from "next/navigation"
 import { authentication } from "@/app/utils/firebaseConfiguration"
+import { createUserWithEmailAndPassword } from "firebase/auth"
 
 const Register = () => {
 
@@ -21,8 +22,8 @@ const Register = () => {
     })
 
     const {push} = useRouter()
-    const {creatAccount, isLoading, setIsLoading, currentUser,
-        setIsVerified, handleErrMsg, err, setErr, errMsg, setErrMsg,} = useAppContext()
+    const { isLoading, setIsLoading, 
+         handleErrMsg, err, setErr, errMsg, } = useAppContext()
 
         // console.log("Authentication "+authentication, "AuthCurrentUser "+authentication.currentUser, "stateUser "+currentUser)
 
@@ -30,7 +31,8 @@ const Register = () => {
         try {
             setIsLoading(true)
             setErr(false)
-            const res = await creatAccount(data.email, data.password)
+            // const res = await creatAccount(data.email, data.password)
+            const res = await createUserWithEmailAndPassword(authentication, data.email, data.password)
             res?push("/post-product"):""
             setIsLoading(false)
         }catch (error) {

@@ -7,14 +7,15 @@ import { useAppContext } from "@/app/context/ContextProvider";
 import { getDownloadURL, ref, uploadBytes, uploadBytesResumable } from "firebase/storage"
 import Image from "next/image";
 import { useEffect, useState} from "react";
-import { storage } from "@/app/utils/firebaseConfiguration"
+import { db, storage } from "@/app/utils/firebaseConfiguration"
+import { addDoc, doc, updateDoc } from "firebase/firestore"
 
 const ProductForm = () => {
-    const {collectionRef, addDocument, isLoading, setIsLoading, singleDoc, updateDocument,
+    const {collectionRef, isLoading, setIsLoading,
             handleErrMsg, err, setErr, errMsg, setErrMsg} = useAppContext()
     const [files, setFiles] = useState([])
-    const [progress, setProgress] = useState("")
-    const [productImages, setProductImages] = useState([])
+    // const [progress, setProgress] = useState("")
+    // const [productImages, setProductImages] = useState([])
 
     const schema = yup.object().shape({
         state: yup.string().required("State is required!"),
@@ -40,7 +41,7 @@ const ProductForm = () => {
     const uploadDocImages = async(array, id)=>{
         try {
             for (let i = 0; i < files.length; i++) {
-                const imageRef = ref(storage, `images/${id}/${Date.now()}${files[i].name}`)
+                const imageRef = ref(storage, `images/${id}/${files[i].name}${Date.now()}`)
                 const uploadImg = await uploadBytesResumable(imageRef, files[i])
                 .then((snapshot)=>{
                     // console.log(snapshot.bytesTransferred)
@@ -63,7 +64,10 @@ const ProductForm = () => {
                     console.log(err.message)
                 })
             }
-            updateDocument(id, {
+            // updateDocument(id, {
+            //     productImages: array,
+            // })
+            updateDoc(doc(db, "Cars", id), {
                 productImages: array,
             }).then(res=>{
                 console.log("Urls added completed")
@@ -91,7 +95,7 @@ const ProductForm = () => {
 
            if (files.length>0) {
 
-                const doc = await addDocument(collectionRef, data)
+                const doc = await addDoc(collectionRef, data)
 
                 if (doc) {
                     const docId = doc.id;

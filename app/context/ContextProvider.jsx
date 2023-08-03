@@ -2,7 +2,7 @@
 
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { createContext, useContext, useState } from "react";
-import { authentication } from "../utils/firebaseConfiguration";
+import { authentication, db } from "../utils/firebaseConfiguration";
 import { addDoc, collection, doc, getDocs, getFirestore, updateDoc } from "firebase/firestore"
 
 const AppContext = createContext()
@@ -16,8 +16,8 @@ const ContextProvider = ({children}) => {
     const [errMsg, setErrMsg] = useState()
     const [currentUser, setCurrentUser] = useState(null)
 
-    const db = getFirestore()
-    const usersRef = collection(db, "users")
+    // const db = getFirestore()
+    // const usersRef = collection(db, "users")
     const collectionRef = collection(db, "Cars")
 
     // onAuthStateChanged(authentication, (user)=>{
@@ -53,6 +53,12 @@ const ContextProvider = ({children}) => {
             case "auth/email-already-in-use":
                 setErrMsg("Email-already-in-use")
             break;
+            case "connectStorageEmulator is not defined":
+                setErrMsg("Network-error")
+            break;
+            case "email is not defined":
+                setErrMsg("Wrong-credentials")
+            break;
             
             default:
                 setErrMsg("Something-went-wrong")
@@ -60,44 +66,44 @@ const ContextProvider = ({children}) => {
         }
     }
 
-    const getDocument = (refrence)=>{
-        return getDocs(refrence)
-    }
+    // const getDocument = (refrence)=>{
+    //     return getDocs(refrence)
+    // }
 
-    const addDocument = (refrence, data) =>{
-        return addDoc(refrence, data)
-    }
+    // const addDocument = (refrence, data) =>{
+    //     return addDoc(refrence, data)
+    // }
 
     // const singleDoc = (databaseCollection, id)=>{
     //     return doc(db, databaseCollection, id)
     // }
 
-    const updateDocument = (id, data)=>{
-        return updateDoc(doc(db, "Cars", id), data)
-    }
+    // const updateDocument = (id, data)=>{
+    //     return updateDoc(doc(db, "Cars", id), data)
+    // }
 
-    const login = (email, password)=>{
-        return signInWithEmailAndPassword(authentication, email, password)
-    }
+    // const login = (email, password)=>{
+    //     return signInWithEmailAndPassword(authentication, email, password)
+    // }
 
-    const creatAccount = (email, password) => {
-        return createUserWithEmailAndPassword(authentication, email, password)
-    }
+    // const creatAccount = (email, password) => {
+    //     return createUserWithEmailAndPassword(authentication, email, password)
+    // }
 
     const value = {
-        isVerified,
-        setIsVerified,
-        usersRef,
+        // isVerified,
+        // setIsVerified,
+        // usersRef,
         collectionRef,
-        getDocument,
-        addDocument,
-        login,
-        creatAccount,
+        // getDocument,
+        // addDocument,
+        // login,
+        // creatAccount,
         isLoading,
         setIsLoading,
         currentUser,
         // singleDoc,
-        updateDocument,
+        // updateDocument,
         err,
         setErr,
         errMsg,
