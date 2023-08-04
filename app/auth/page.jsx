@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import { useRouter } from "next/navigation"
 import { useAppContext } from "@/app/context/ContextProvider"
 import { authentication } from "../utils/firebaseConfiguration"
+import { signInWithEmailAndPassword } from "firebase/auth"
 
 const Login = () => {
 
@@ -18,8 +19,8 @@ const Login = () => {
         resolver: yupResolver(schema)
     })
 
-    const {getDocument, usersRef, login, isLoading, setIsLoading,
-        handleErrMsg, err, setErr, errMsg, setErrMsg} = useAppContext()
+    const { isLoading, setIsLoading,
+        handleErrMsg, err, setErr, errMsg,} = useAppContext()
 
     const {push} = useRouter()
     
@@ -27,7 +28,8 @@ const Login = () => {
         try {
             setIsLoading(true)
             setErr(false)
-            const res = await login(data.email, data.password)
+            // const res = await login(data.email, data.password)
+            const res = await signInWithEmailAndPassword(authentication, data.email, data.password)
             setIsLoading(false)
             res?push("/post-product"):""
             document.querySelector("form").reset()

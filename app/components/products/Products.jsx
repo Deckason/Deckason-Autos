@@ -101,8 +101,8 @@ const Products = ({products, page}) => {
                         <Link href={""}>ALL CARS <FaArrowRight /></Link>
                     </div>
                     <div className={styles.products}>
-                    {products&&
-                        products?.map(car =>(
+                    {
+                        products.map(car =>(
                             <div className={styles.product_card} key={car.key}>
                                 <div className={styles.product_img}>
                                     <Image 
