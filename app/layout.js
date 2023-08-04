@@ -17,13 +17,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body >
-        <ContextProvider>
+        {/* <ContextProvider> */}
         <Nav />
         {children}
         <BottomNav />
         <Footer />
         {/* added the develope branch */}
-        </ContextProvider>
+        {/* </ContextProvider> */}
         </body>
     </html>
   )

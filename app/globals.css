@@ -59,6 +59,13 @@ img{
   text-align: center;
 }
 
+.successMsg{
+  color: green;
+  background: rgb(201, 243, 201);
+  padding: 5px;
+  text-align: center;
+}
+
 /* ////////////////////////// ASIDE NAV ////////////// */
  .aside_container{
   margin-top: 2rem;
