@@ -31,7 +31,7 @@ const ForeignUsed = () => {
     },[])
 
     return (
-        <div className={`aside_product_container ${styles.foreign_used}`}>
+        <div className={`container ${styles.foreign_used}`}>
             <div className={`aside_container ${styles.aside_container}`}>
                 <AsideNav />
             </div>

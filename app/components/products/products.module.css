@@ -48,6 +48,7 @@
 
  .products > .product_card{
     width: 300px;
+    max-width: 500px;
     margin: 5px;
     height: 20rem;
     border-radius: 5px;
