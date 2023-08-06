@@ -3,19 +3,22 @@ import { set, useForm } from "react-hook-form"
 import * as yup from "yup"
 import { yupResolver } from "@hookform/resolvers/yup"
 import styles from "./ProductForm.module.css"
-import { useAppContext } from "@/app/context/ContextProvider";
 import { getDownloadURL, ref, uploadBytes, uploadBytesResumable } from "firebase/storage"
 import Image from "next/image";
 import { useEffect, useState} from "react";
 import { db, storage } from "@/app/utils/firebaseConfiguration"
-import { addDoc, doc, updateDoc } from "firebase/firestore"
+import { addDoc, collection, doc, updateDoc } from "firebase/firestore"
 
 const ProductForm = () => {
-    const {collectionRef, isLoading, setIsLoading,
-            handleErrMsg, err, setErr, errMsg, setErrMsg} = useAppContext()
+    
+    const collectionRef = collection(db, "Cars")
+
+    const [isLoading, setIsLoading] = useState(false)
+    const [err, setErr] = useState(false)
+    const [errMsg, setErrMsg] = useState()
+    const [successMsg, setSuccessMsg] = useState("")
+    const [success, setSuccess] = useState(false)
     const [files, setFiles] = useState([])
-    // const [progress, setProgress] = useState("")
-    // const [productImages, setProductImages] = useState([])
 
     const schema = yup.object().shape({
         state: yup.string().required("State is required!"),
@@ -34,7 +37,7 @@ const ProductForm = () => {
         transmission: yup.string(),
     })
 
-    const { register, handleSubmit, formState:{errors} } = useForm({
+    const { register, handleSubmit, formState:{errors}, reset } = useForm({
         resolver: yupResolver(schema)
     })
     
@@ -44,13 +47,8 @@ const ProductForm = () => {
                 const imageRef = ref(storage, `images/${id}/${files[i].name}${Date.now()}`)
                 const uploadImg = await uploadBytesResumable(imageRef, files[i])
                 .then((snapshot)=>{
-                    // console.log(snapshot.bytesTransferred)
-                    // setProgress((snapshot.bytesTransferred / snapshot.totalBytes)*100)
                     getDownloadURL(snapshot.ref).then((url)=>{
                         array.push(...[url])
-                    //    setProductImages(prev=>[...prev, url])
-                        
-                        // updateImages?console.log("Images url updated"):console.log("Images url not updated")
                     }).catch(err=>{
                         setIsLoading(false)
                         setErr(true)
@@ -64,13 +62,11 @@ const ProductForm = () => {
                     console.log(err.message)
                 })
             }
-            // updateDocument(id, {
-            //     productImages: array,
-            // })
             updateDoc(doc(db, "Cars", id), {
                 productImages: array,
             }).then(res=>{
-                console.log("Urls added completed")
+                setSuccess(true)
+                setSuccessMsg("Uploads-successful")
             }).catch(err=>{
                 setIsLoading(false)
                 setErr(true)
@@ -91,6 +87,7 @@ const ProductForm = () => {
         try {
             setIsLoading(true)
             setErr(false)
+            setSuccess(false)
             let urlArray = []
 
            if (files.length>0) {
@@ -107,7 +104,7 @@ const ProductForm = () => {
                 }
 
                 setIsLoading(false)
-                document.querySelector("form").reset()
+                reset()
                 setFiles([])
                 data={}
             }else{
@@ -132,11 +129,54 @@ const ProductForm = () => {
         }
     }
 
+    const handleErrMsg= (err) =>{
+        switch (err.code) {
+            case "auth/email-already-exists":
+                setErrMsg("Email-already-exists")
+            break;
+            case "auth/internal-error":
+                setErrMsg("Internal-error")
+            break;
+            case "auth/invalid-email":
+                setErrMsg("Invalid-email")
+            break;
+            case "auth/invalid-password":
+                setErrMsg("Invalid-credentials")
+            break;
+            case "auth/user-not-found":
+                setErrMsg("User-not-found")
+            break;
+            case "auth/network-request-failed":
+                setErrMsg("Network-request-failed")
+            break;
+            case "auth/wrong-password":
+                setErrMsg("Wrong-credentials")
+            break;
+            case "auth/too-many-requests":
+                setErrMsg("Too-many-requests")
+            break;
+            case "auth/email-already-in-use":
+                setErrMsg("Email-already-in-use")
+            break;
+            case "connectStorageEmulator is not defined":
+                setErrMsg("Network-error")
+            break;
+            case "email is not defined":
+                setErrMsg("Wrong-credentials")
+            break;
+            
+            default:
+                setErrMsg("Something-went-wrong")
+            break;
+        }
+    }
+
     return (
         <div className={styles.postProduct}>
             <form className={styles.form} onSubmit={handleSubmit(submit)}>
                 <h1>Post Product</h1>
                 {err&&<p className="errMsg">{errMsg}</p>}
+                {success&&<p className="successMsg">{successMsg}</p>}
                 <div className={styles.form_inputs}>
                     <div className={`${styles.location} ${styles.inputCategory}`}>
                         <h4>Location</h4>
@@ -267,25 +307,9 @@ const ProductForm = () => {
                 </div>
                 <div className={styles.submit_button_container}>
                         <button className={`btn ${styles.submit}`}
-                            // onClick={()=>{document.querySelector(".images").value==""?alert("Atleast one image is required!"):{}}}
                         >{isLoading?"Loading...":"Submit"}
                         </button>
                     </div>
-                    {/* <div className={styles.preview_wrapper}>
-                    {productImages &&
-                        productImages.map((url, key)=>(
-                            <div className={styles.preview} key={key}>
-                                <Image
-                                    src={url}
-                                    width={1}
-                                    height={1}
-                                    alt="productImages"
-                                    />
-                            </div>
-                        ))
-                    }</div> */}
-                    {/* <progress value={progress} max={100}>{progress}%</progress> */}
-                    {/* <p>progress: {progress}% url={productImages}</p> */}
             </form>
         </div>
     );
