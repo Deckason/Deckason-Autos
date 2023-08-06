@@ -33,6 +33,14 @@ body{
   background: var(--background);
 }
 
+/* .container{
+  width: 100%;
+}
+
+.flex-container{
+  display: flex;
+} */
+
 a{
   text-decoration: none;
 }
@@ -47,7 +55,7 @@ img{
   object-fit: cover;
 }
 
-.aside_product_container{
+.container{
   width: 100%;
   display: flex;
 }
@@ -69,13 +77,13 @@ img{
 /* ////////////////////////// ASIDE NAV ////////////// */
  .aside_container{
   margin-top: 2rem;
-  min-width: 300px;
+  width: 300px;
 }
 
 .aside{
   width: 95%;
   margin-left: 5%;
-  min-height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   gap: .5rem;
@@ -141,6 +149,7 @@ img{
 
  .product_container{
   width: calc(100% - 300px);
+  min-height: 80vh;
 }
 
 /* ////////////////////////////// ASIDE/CONTAINER ////////////// */
