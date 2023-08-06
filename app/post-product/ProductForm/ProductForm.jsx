@@ -37,7 +37,7 @@ const ProductForm = () => {
         transmission: yup.string(),
     })
 
-    const { register, handleSubmit, formState:{errors} } = useForm({
+    const { register, handleSubmit, formState:{errors}, reset } = useForm({
         resolver: yupResolver(schema)
     })
     
@@ -104,7 +104,7 @@ const ProductForm = () => {
                 }
 
                 setIsLoading(false)
-                document.querySelector("form").reset()
+                reset()
                 setFiles([])
                 data={}
             }else{
