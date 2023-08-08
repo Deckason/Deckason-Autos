@@ -1,27 +1,27 @@
 import styles from "./ProductDetails.module.css"
 
-const ProductDetails = () => {
+const ProductDetails = ({product}) => {
     return (
         <div className={styles.details_wrapper}>
             <h2>Other Details</h2>
             <div className={styles.details}>
-                <p><span>Make</span> <span>Make</span></p>
-                <p><span>Model</span> <span>Model</span></p>
-                <p><span>Year</span> <span>Year</span></p>
-                <p><span>Condition</span> <span>Condition</span></p>
-                <p><span>Custom Paper</span> <span>Custom Paper</span></p>
-                <p><span>Mileage</span> <span>Mileage</span></p>
-                <p><span>Bought Condition</span> <span>Bought Condition</span></p>
-                <p><span>Selling Condition</span> <span>Selling Condition</span></p>
-                <p><span>Fuel Type</span> <span>Fuel Type</span></p>
-                <p><span>Transmission</span> <span>Transmission</span></p>
-                <p><span>Engine Type</span> <span>Engine Type</span></p>
-                <p><span>Engine Size</span> <span>Engine Size</span></p>
-                <p><span>Color (Exterior)</span> <span>Color (Exterior)</span></p>
-                <p><span>Color (Interior)</span> <span>Color (Interior)</span></p>
-                <p><span>Diagnostic Report</span> <span>Diagnostic Report</span></p>
-                <p><span>Air Bag</span> <span>Air Bag</span></p>
-                <p><span>Drive Type</span> Drive Type</p>
+                {product.make && <p><span>Make</span> <span>{product.make}</span></p>}
+                {product.model && <p><span>Model</span> <span>{product.model}</span></p>}
+                {product.year && <p><span>Year</span> <span>{product.year}</span></p>}
+                {product.condition && <p><span>Condition</span> <span>{product.condition}</span></p>}
+                {product.customPaper && <p><span>Custom Paper</span> <span>{product.customPaper}</span></p>}
+                {product.mileage && <p><span>Mileage</span> <span>{product.mileage}</span></p>}
+                {product.boughtCondition && <p><span>Bought Condition</span> <span>{product.boughtCondition}</span></p>}
+                {product.condition && <p><span>Selling Condition</span> <span>{product.condition}</span></p>}
+                {product.fuel && <p><span>Fuel Type</span> <span>{product.fuel}</span></p>}
+                {product.transmission && <p><span>Transmission</span> <span>{product.transmission}</span></p>}
+                {product.engineType && <p><span>Engine Type</span> <span>{product.engineType}</span></p>}
+                {product.engineSize && <p><span>Engine Size</span> <span>{product.engineSize}</span></p>}
+                {product.exteriorColor && <p><span>Color (Exterior)</span> <span>{product.exteriorColor}</span></p>}
+                {product.interiorColor && <p><span>Color (Interior)</span> <span>{product.interiorColor}</span></p>}
+                {product.diagnosticReport && <p><span>Diagnostic Report</span> <span>{product.diagnosticReport}</span></p>}
+                {product.airBag && <p><span>Air Bag</span> <span>{product.airBag}</span></p>}
+                {product.driveType && <p><span>Drive Type</span>{product.driveType}</p>}
             </div>
         </div>
     );

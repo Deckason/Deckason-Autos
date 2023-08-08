@@ -31,21 +31,22 @@ const productId = ({params: {productId}}) => {
         getProduct()
     },[productId])
 
+    console.log(product)
+
     return (
         <div className={`container ${""}`}>
             <div className={`aside_container ${""}`}>
                 <AsideNav />
             </div>
-            {!isLoading && <div className={`product_container ${styles.product_description}`}>
+            {isLoading ? "Loading..." : <div className={`product_container ${styles.product_description}`}>
                 <div className={styles.preview_products}>
                     <ProductPreview images={product?.productImages}/>
                 </div>
                 <div className={styles.product_details}>
-                    <ProductKeyFeatures product={product}/>
-                    <ProductDetails product={product}/>
+                    {product && <ProductKeyFeatures product={product}/>}
+                    {product && <ProductDetails product={product}/>}
                 </div>
             </div>}
-            {isLoading&& <p>Loading...</p>}
             {/* <div className={styles.similar_products}>
                 <h2>Similar Cars</h2>
                 <Products />

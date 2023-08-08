@@ -41,7 +41,7 @@ const Products = ({products, page}) => {
                                     <h4 className={styles.product_name}>{`${product.year} ${product.make} ${product.model}`}</h4>
                                     <div className={styles.other_details}>
                                         <div className={styles.left_details}>
-                                            <p className={styles.product_location}><ImLocation2 /> {`${product.region} ${product.state}`}</p>
+                                            <p className={styles.product_location}><ImLocation2 /> {`${product.region} ${product.lga} ${product.state}`}</p>
                                             <p className={styles.product_mileage}><MdSpeed /> {product.mileage}</p>
                                         </div>
                                         <div className={styles.right_details}>
