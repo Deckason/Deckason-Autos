@@ -6,89 +6,10 @@ import {ImLocation2} from "react-icons/im"
 import {MdSpeed} from "react-icons/md"
 import {GiSpanner, GiNotebook} from "react-icons/gi"
 import {TbCurrencyNaira} from "react-icons/tb"
-import product_img_1 from "../../../public/media/car images/FB_IMG_1615720872137.jpg"
-import product_img_2 from "../../../public/media/car images/FB_IMG_16223932793306100.jpg"
-// import { useAppContext } from "@/app/context/ContextProvider";
-// import { useEffect, useState } from "react";
 
 
 const Products = ({products, page}) => {
-    // const [products, setProducts] = useState([])
-    // const { getDocument, collectionRef} = useAppContext() 
-
-    // const getProducts = async ()=>{
-    //     let carDocs = []
-    //     try {
-    //         const snapshot = await getDocument(collectionRef)
-    //         snapshot.docs.forEach(product => {
-    //             carDocs.push({...product.data(), id: product.id})
-    //         });
-    //         setProducts(carDocs)
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-    // }
-
-    // useEffect(()=>{
-    //     getProducts()
-    // },[])
-
-    const carList = [
-        {
-            id: 1,
-            name: "2007 Toyota Camry ",
-            location: "Owerri, Imo State",
-            condition: "Foreign Used",
-            mileage: "3000km",
-            price: "3,000,000.00",
-            registration: "Registered"
-        },
-        {
-            id: 2,
-            name: "2007 Toyota Camry ",
-            location: "Owerri, Imo State",
-            condition: "Foreign Used",
-            mileage: "3000km",
-            price: "3,000,000.00",
-            registration: "Registered"
-        },
-        {
-            id: 3, 
-            name: "2007 Toyota Camry ",
-            location: "Owerri, Imo State",
-            condition: "Foreign Used",
-            mileage: "3000km",
-            price: "3,000,000.00",
-            registration: "Registered"
-        },
-        {
-            id: 4,
-            name: "2007 Toyota Camry ",
-            location: "Owerri, Imo State",
-            condition: "Foreign Used",
-            mileage: "3000km",
-            price: "3,000,000.00",
-            registration: "Registered"
-        },
-        {
-            id: 5,
-            name: "2007 Toyota Camry ",
-            location: "Owerri, Imo State",
-            condition: "Foreign Used",
-            mileage: "3000km",
-            price: "3,000,000.00",
-            registration: "Registered"
-        },
-        {
-            id: 6,
-            name: "2007 Toyota Camry ",
-            location: "Owerri, Imo State",
-            condition: "Foreign Used",
-            mileage: "3000km",
-            price: "3,000,000.00",
-            registration: "Registered"
-        }
-    ]
+    
     return (
         <>
             <div className={styles.products_wrapper}>
@@ -102,34 +23,35 @@ const Products = ({products, page}) => {
                     </div>
                     <div className={styles.products}>
                     {
-                        products.map(car =>(
-                            <div className={styles.product_card} key={car.key}>
-                                <div className={styles.product_img}>
+                        products.map(product =>(
+                            <div className={styles.product_card} key={product.id}>
+                                <Link href={`/${product.id}`}><div className={styles.product_img}>
                                     <Image 
                                         height={100}
                                         width={300}
                                         alt="product-Img"
                                         style={{'objectFit':"cover"}}
-                                        src={car.productImages[0]}
+                                        src={product.productImages[0]}
                                         className={styles.img_wrapper}
                                     />
-                                    <p className={styles.price_tag}><TbCurrencyNaira/>{car.price}</p>
-                                </div>
+                                    <p className={styles.price_tag}><TbCurrencyNaira/>{product.price}</p>
+                                    </div>
+                                </Link>
                                 <div className={styles.product_description}>
-                                    <h4 className={styles.product_name}>{`${car.year} ${car.make} ${car.model}`}</h4>
+                                    <h4 className={styles.product_name}>{`${product.year} ${product.make} ${product.model}`}</h4>
                                     <div className={styles.other_details}>
                                         <div className={styles.left_details}>
-                                            <p className={styles.product_location}><ImLocation2 /> {`${car.region} ${car.state}`}</p>
-                                            <p className={styles.product_mileage}><MdSpeed /> {car.mileage}</p>
+                                            <p className={styles.product_location}><ImLocation2 /> {`${product.region} ${product.lga} ${product.state}`}</p>
+                                            <p className={styles.product_mileage}><MdSpeed /> {product.mileage}</p>
                                         </div>
                                         <div className={styles.right_details}>
-                                            <p className={styles.product_condition}><GiSpanner /> {car.condition}</p>
-                                            <p className={styles.product_register}><GiNotebook /> {car.registrationStatus}</p>
+                                            <p className={styles.product_condition}><GiSpanner /> {product.condition}</p>
+                                            <p className={styles.product_register}><GiNotebook /> {product.registrationStatus}</p>
                                         </div>
                                     </div>
                                     <div className={styles.price}>
-                                        <p><TbCurrencyNaira/>{car.price}</p>
-                                        <button className={`btn`}>View Details</button>
+                                        <p><TbCurrencyNaira/>{product.price}</p>
+                                        <Link href={`/${product.id}`}><button className={`btn`}>View Details</button></Link>
                                     </div>
                                 </div>
                             </div>

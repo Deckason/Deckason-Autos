@@ -32,7 +32,7 @@ const ForeignUsed = () => {
     },[])
 
     return (
-        <div className={`aside_product_container ${styles.nigerian_used}`}>
+        <div className={`container ${styles.nigerian_used}`}>
             <div className={`aside_container ${styles.aside_container}`}>
                 <AsideNav />
             </div>
