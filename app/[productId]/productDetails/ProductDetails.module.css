@@ -1,0 +1,29 @@
+.details_wrapper{
+    background: var(--white);
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.details_wrapper h2{
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.details{
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    column-gap: 3rem;
+}
+
+.details p{
+    width: 70px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+}
+
+.details p span:nth-child(2){
+    color: var(--grey);
+}
