@@ -153,6 +153,16 @@ img{
 }
 
 /* ////////////////////////////// ASIDE/CONTAINER ////////////// */
+
+@media screen and (max-width: 1000px) {
+  .aside_container{
+    width: 200px;
+  }
+  .product_container{
+    width: calc(100% - 200px);
+  }
+}
+
 @media screen and (max-width: 768px) {
 
 

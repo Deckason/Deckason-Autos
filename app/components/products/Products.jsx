@@ -23,35 +23,35 @@ const Products = ({products, page}) => {
                     </div>
                     <div className={styles.products}>
                     {
-                        products.map(car =>(
-                            <div className={styles.product_card} key={car.key}>
-                                <Link href={"/productId"}><div className={styles.product_img}>
+                        products.map(product =>(
+                            <div className={styles.product_card} key={product.id}>
+                                <Link href={`/${product.id}`}><div className={styles.product_img}>
                                     <Image 
                                         height={100}
                                         width={300}
                                         alt="product-Img"
                                         style={{'objectFit':"cover"}}
-                                        src={car.productImages[0]}
+                                        src={product.productImages[0]}
                                         className={styles.img_wrapper}
                                     />
-                                    <p className={styles.price_tag}><TbCurrencyNaira/>{car.price}</p>
+                                    <p className={styles.price_tag}><TbCurrencyNaira/>{product.price}</p>
                                     </div>
                                 </Link>
                                 <div className={styles.product_description}>
-                                    <h4 className={styles.product_name}>{`${car.year} ${car.make} ${car.model}`}</h4>
+                                    <h4 className={styles.product_name}>{`${product.year} ${product.make} ${product.model}`}</h4>
                                     <div className={styles.other_details}>
                                         <div className={styles.left_details}>
-                                            <p className={styles.product_location}><ImLocation2 /> {`${car.region} ${car.state}`}</p>
-                                            <p className={styles.product_mileage}><MdSpeed /> {car.mileage}</p>
+                                            <p className={styles.product_location}><ImLocation2 /> {`${product.region} ${product.lga} ${product.state}`}</p>
+                                            <p className={styles.product_mileage}><MdSpeed /> {product.mileage}</p>
                                         </div>
                                         <div className={styles.right_details}>
-                                            <p className={styles.product_condition}><GiSpanner /> {car.condition}</p>
-                                            <p className={styles.product_register}><GiNotebook /> {car.registrationStatus}</p>
+                                            <p className={styles.product_condition}><GiSpanner /> {product.condition}</p>
+                                            <p className={styles.product_register}><GiNotebook /> {product.registrationStatus}</p>
                                         </div>
                                     </div>
                                     <div className={styles.price}>
-                                        <p><TbCurrencyNaira/>{car.price}</p>
-                                        <Link href={"/productId"}><button className={`btn`}>View Details</button></Link>
+                                        <p><TbCurrencyNaira/>{product.price}</p>
+                                        <Link href={`/${product.id}`}><button className={`btn`}>View Details</button></Link>
                                     </div>
                                 </div>
                             </div>
