@@ -18,7 +18,7 @@ const Footer = () => {
                     <Link href={""}><FaLinkedinIn className={`${styles.icon}`}/></Link>
                     <Link href={""}><FaInstagramSquare className={`${styles.icon}`}/></Link>
                 </div>
-                <div className={styles.footer_others}>
+                <div className={styles.footer_contact}>
                     <div className={styles.contact}>
                         <h1 className={styles.contact_header}>Contact Us</h1>
                         <div className={styles.contacts}>
@@ -30,11 +30,11 @@ const Footer = () => {
                     <div className={styles.link}>
                         <h1 className={styles.links_header}>Links</h1>
                         <ul className={styles.links}>
-                            <li><Link href={""}>Home</Link></li>
-                            <li><Link href={""}>Foreign Used</Link></li>
-                            <li><Link href={""}>Nigerian Used</Link></li>
-                            <li><Link href={""}>Sell car</Link></li>
-                            <li><Link href={""}>Our Services</Link></li>
+                            <li><Link href={"/"}>Home</Link></li>
+                            <li><Link href={"/nigerian"}>Foreign Used</Link></li>
+                            <li><Link href={"/foreign"}>Nigerian Used</Link></li>
+                            <li><Link href={"/sell"}>Sell car</Link></li>
+                            <li><Link href={"/services"}>Our Services</Link></li>
                         </ul>
                     </div>
                     <div className={styles.categories}>

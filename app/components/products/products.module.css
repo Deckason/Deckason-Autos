@@ -126,6 +126,13 @@
     width: 10rem;
  }
 
+ @media screen and (max-width: 768px) {
+   .price button{
+      width: auto;
+      padding: .5rem 2rem;
+   }
+ }
+
  @media screen and (max-width: 650px) {
    .products_wrapper .background_text{
       font-size: 3rem;
@@ -198,10 +205,6 @@
    .price p{
       font-size: smaller;
       font-weight: 800;
-   }
-  
-   .price button{
-      width: 5rem;
    }
 
 }

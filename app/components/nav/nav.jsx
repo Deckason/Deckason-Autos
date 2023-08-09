@@ -2,10 +2,12 @@
 import { signOut } from "firebase/auth";
 import styles from "./nav.module.css"
 import Link from "next/link";
+import logo from "../../../public/media/car logos/logo.jpg"
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";
 import { authentication } from "@/app/utils/firebaseConfiguration";
+import Image from "next/image";
 
 const Nav = () => {
    
@@ -13,7 +15,7 @@ const Nav = () => {
         <>
             <header className={styles.header}>
                 <div className={styles.header_logo}>
-                    <Link href={"/"}>Deckason Autos</Link>
+                    <Link href={"/"}><Image src={logo} width={300} height={100}/></Link>
                 </div>
                 <ul
                     className={`${styles.header_ul}`}>
@@ -21,7 +23,6 @@ const Nav = () => {
                     <li><Link href={"/nigerian"}>Nigerian Used</Link></li>
                     <li><Link href={"/foreign"}>Foreign Used</Link></li>
                     <li><Link href={"/about"}>About Us</Link></li>
-                    <button className={`btn`} onClick={()=>{signOut(authentication)}}>Logout</button>
                 </ul>
                 <div className={styles.header_search}>
                     <div className={styles.search_wrapper}>

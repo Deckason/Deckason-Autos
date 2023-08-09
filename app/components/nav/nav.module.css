@@ -1,89 +1,99 @@
 .header{
     z-index: 99;
     width: 100%;
-    height: 10vh;
+    height: 70px;
+    padding: 0 1rem;
     display: flex;
     background: var(--black);
+    justify-content: space-between;
+    
 }
 
 .header a{
     color: #fff;
 }
-
-.header .header_logo{
-    width: 20%;
+ 
+.header_logo{
+    width: 15%;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
 }
 
-.header .header_ul{
+.header_logo img{
+    background: transparent;
+    object-fit: scale-down;
+}
+
+.header_ul{
     width: 50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.header .header_search{
-    width: 30%;
+.header_search{
+    width: 25%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.header_search .search_wrapper{
-    height: 1.5rem;
-    width: 80%;
+
+.search_wrapper{
+    height: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.header_search input,
-.header_search button{
+.search_wrapper input,
+.search_wrapper button{
     height: 100%;
     border: none;
     outline: none;
     text-align: center;
 }
 
-.header_search input{
+.search_wrapper input{
     width: 70%;
+    height: 100%;
     
 }
 
-.header_search input::placeholder{
+.search_wrapper input::placeholder{
     text-align: center;
     letter-spacing: .2rem;
 }
 
-.header_search button{
+.search_wrapper button{
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     width: 30%;
+    height: 100%;
 }
-
+ 
 
 /* ///////////////// MEDIA 768PX //////////// */
-@media screen and (max-width: 768px) {
-    .header{
-        height: auto;
-        justify-content: space-between;
-        padding: 1rem .5rem;
+ @media screen and (max-width: 768px) {
+    
+    .header_logo{
+        width: 30%;
     }
 
-    .header .header_logo{
-        width: auto;
-    }
-
-    .header .header_ul{
+    .header_ul{
         display: none;
     }
 
-    .header .header_search{
-        width: auto;
-        justify-content: flex-end;
+    .header_search{
+        width: 60%;
     }
+} 
 
-    .header_search .search_wrapper{
-        width: auto;
+@media screen and (max-width: 320px) {
+    .header{
+        padding: 0 .5rem;
     }
-
 }
