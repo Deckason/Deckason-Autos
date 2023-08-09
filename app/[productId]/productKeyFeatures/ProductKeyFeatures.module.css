@@ -5,6 +5,7 @@
     background: var(--white);
     border-radius: 5px;
     padding: 1rem;
+    width: 100%;
 }
 
 .primary_features{
@@ -31,18 +32,13 @@
     gap: 1rem;
 }
 
-.contact_for_product span{
+.contact_for_product button{
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    background: var(--button-bg);
-    color: var(--white);
     font-size: xx-large;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: .1rem 0;
 }
 
 @media screen and (max-width: 1000px) {
@@ -58,13 +54,13 @@
         font-size: medium;
     }
 
-    .contact_for_product span{
+    .contact_for_product button{
         font-size: large;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .contact_for_product span{
-        padding: .5rem 0;
+    .contact_for_product button{
+        padding: .5rem;
     }
 }

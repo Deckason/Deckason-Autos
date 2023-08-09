@@ -15,8 +15,8 @@ const ProductKeyFeatures = ({product}) => {
                 {product.transmission && <h5>{product.transmission}</h5>}
             </div>
             <div className={styles.contact_for_product}>
-                <span>Phone <FaPhoneSquare /></span>
-                <span>WhatsApp <FaWhatsappSquare /></span>
+                <button className={`btn`}>Phone <FaPhoneSquare /></button>
+                <button className={`btn`}>WhatsApp <FaWhatsappSquare /></button>
             </div>
         </div>
     );

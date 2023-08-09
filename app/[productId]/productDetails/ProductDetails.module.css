@@ -2,6 +2,7 @@
     background: var(--white);
     border-radius: 5px;
     padding: 1rem;
+    width: 100%;
 }
 
 .details_wrapper h2{
