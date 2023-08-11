@@ -1,7 +1,25 @@
 import { FaPhoneSquare, FaWhatsappSquare } from "react-icons/fa";
 import styles from "./ProductKeyFeatures.module.css"
+import Link from "next/link";
 
 const ProductKeyFeatures = ({product}) => {
+
+    const carDetails = `${product.year} ${product.make} ${product.model} ${product.condition} \n ${window.location.href}`; //Car details
+    const encodedMessage = encodeURIComponent("I'm interested in the car with details:\n" + carDetails);
+    
+    const whatsappLink = "https://api.whatsapp.com/send?phone=2348165143702&text=" + encodedMessage;
+    
+    // Now you can use the 'whatsappLink' in your HTML or JavaScript code
+
+    // <button onclick="callNumber()">Call Now</button>
+
+        // const callNumber = () => {
+        //     const phoneNumber = '+2348165143702'; // Replace with your phone number
+        //     window.location.href = 'tel:' + phoneNumber;
+        // }
+
+    
+
     return (
         <div className={styles.key_features}>
             <div className={styles.primary_features}>
@@ -15,8 +33,8 @@ const ProductKeyFeatures = ({product}) => {
                 {product.transmission && <h5>{product.transmission}</h5>}
             </div>
             <div className={styles.contact_for_product}>
-                <button className={`btn`}>Phone <FaPhoneSquare /></button>
-                <button className={`btn`}>WhatsApp <FaWhatsappSquare /></button>
+                <Link target="_blank" href={"'tel:+2348165143702"} className={`btn ${styles.contact_buttons}`}>Phone <FaPhoneSquare /></Link>
+                <Link target="_blank" href={whatsappLink} className={`btn ${styles.contact_buttons}`}>WhatsApp <FaWhatsappSquare /></Link>
             </div>
         </div>
     );

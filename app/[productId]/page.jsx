@@ -31,8 +31,6 @@ const productId = ({params: {productId}}) => {
         getProduct()
     },[productId])
 
-    console.log(product)
-
     return (
         <div className={`container ${""}`}>
             <div className={`aside_container ${""}`}>
