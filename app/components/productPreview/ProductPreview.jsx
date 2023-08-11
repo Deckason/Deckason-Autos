@@ -25,11 +25,32 @@ const ProductPreview = ({images}) => {
         }
     }
 
+    const handleTouchStart = (e) => {
+        const touchStartX = e.touches[0].clientX;
+
+        const handleTouchMove = (e) => {
+            const touchEndX = e.changedTouches[0].clientX;
+            const deltaX = touchEndX - touchStartX;
+
+            if (deltaX > 50) {
+                prevImg();
+            } else if (deltaX < -50) {
+                nextImg();
+            }
+        };
+
+        e.currentTarget.addEventListener('touchmove', handleTouchMove);
+
+        e.currentTarget.addEventListener('touchend', () => {
+            e.currentTarget.removeEventListener('touchmove', handleTouchMove);
+        });
+    };
+
     return (
         <>
         <div className={styles.preview_container}>
             {images &&
-            <div className={styles.preview_slider}>
+            <div className={styles.preview_slider} onTouchStart={handleTouchStart}>
                 <Image
                     src={images[imgIndex]}
                     width={500}
