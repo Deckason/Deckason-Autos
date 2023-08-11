@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const ProductKeyFeatures = ({product}) => {
 
-    const carDetails = `${product.year} ${product.make} ${product.model} ${product.condition} \n ${window.location.href}`; //Car details
+    const carDetails = `${product.year} ${product.make} ${product.model} ${product.condition}\n${window.location.href}`; //Car details
     const encodedMessage = encodeURIComponent("I'm interested in the car with details:\n" + carDetails);
     
     const whatsappLink = "https://api.whatsapp.com/send?phone=2348165143702&text=" + encodedMessage;
@@ -33,7 +33,7 @@ const ProductKeyFeatures = ({product}) => {
                 {product.transmission && <h5>{product.transmission}</h5>}
             </div>
             <div className={styles.contact_for_product}>
-                <Link target="_blank" href={"'tel:+2348165143702"} className={`btn ${styles.contact_buttons}`}>Phone <FaPhoneSquare /></Link>
+                <Link target="_blank" href={"tel:+2348165143702"} className={`btn ${styles.contact_buttons}`}>Phone <FaPhoneSquare /></Link>
                 <Link target="_blank" href={whatsappLink} className={`btn ${styles.contact_buttons}`}>WhatsApp <FaWhatsappSquare /></Link>
             </div>
         </div>
