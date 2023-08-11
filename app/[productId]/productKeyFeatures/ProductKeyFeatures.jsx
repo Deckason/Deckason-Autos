@@ -33,7 +33,7 @@ const ProductKeyFeatures = ({product}) => {
                 {product.transmission && <h5>{product.transmission}</h5>}
             </div>
             <div className={styles.contact_for_product}>
-                <Link target="_blank" href={"'tel:+2348165143702"} className={`btn ${styles.contact_buttons}`}>Phone <FaPhoneSquare /></Link>
+                <Link target="_blank" href={"tel:+2348165143702"} className={`btn ${styles.contact_buttons}`}>Phone <FaPhoneSquare /></Link>
                 <Link target="_blank" href={whatsappLink} className={`btn ${styles.contact_buttons}`}>WhatsApp <FaWhatsappSquare /></Link>
             </div>
         </div>
