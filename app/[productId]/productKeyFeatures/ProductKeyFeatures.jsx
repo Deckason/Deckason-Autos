@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const ProductKeyFeatures = ({product}) => {
 
-    const carDetails = `${product.year} ${product.make} ${product.model} ${product.condition} \n ${window.location.href}`; //Car details
+    const carDetails = `${product.year} ${product.make} ${product.model} ${product.condition}\n${window.location.href}`; //Car details
     const encodedMessage = encodeURIComponent("I'm interested in the car with details:\n" + carDetails);
     
     const whatsappLink = "https://api.whatsapp.com/send?phone=2348165143702&text=" + encodedMessage;
