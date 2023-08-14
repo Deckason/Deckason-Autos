@@ -2,17 +2,15 @@
 import styles from "./foreign.module.css"
 import AsideNav from "../components/AsideNav/AsideNav";
 import Products from "../components/products/Products";
-import { useAppContext } from "../context/ContextProvider";
 import { useEffect, useState } from "react";
-import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../utils/firebaseConfiguration";
-import CardSkeleton from "../components/products/cardSkeleton/cardSkeleton";
+import CardSkeleton from "../components/products/cardSkeleton/CardSkeleton";
 
 const ForeignUsed = () => {
 
     const [products, setProducts] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-    // const db = getFirestore()
     const collectionRef = collection(db, "Cars") 
 
     const getProducts = async ()=>{
@@ -41,8 +39,8 @@ const ForeignUsed = () => {
                 <AsideNav />
             </div>
             <div className={`product_container ${styles.product_container}`}>
-                {isLoading?<CardSkeleton />
-                    :(<Products page={"Foreign used"} products={products}/>)}
+                {isLoading ? <CardSkeleton />
+                    : <Products page={"Foreign used"} products={products}/>}
             </div>
         </div>
     );

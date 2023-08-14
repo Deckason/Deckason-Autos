@@ -1,14 +1,12 @@
 "use client"
 import AsideNav from "../components/AsideNav/AsideNav";
 import styles from "./productId.module.css"
-import Products from "../components/products/Products";
 import ProductDetails from "./productDetails/ProductDetails";
 import ProductKeyFeatures from "./productKeyFeatures/ProductKeyFeatures";
 import { doc, getDoc } from "firebase/firestore";
 import { collectionRef } from "../utils/firebaseConfiguration";
 import { useEffect, useState } from "react";
 import ProductPreview from "../components/productPreview/ProductPreview";
-import CardSkeleton from "../components/products/cardSkeleton/cardSkeleton";
 import ProductDetailsSkeleton from "./productDetails/productDetailsSkeleton/ProductDetailsSkeleton";
 import ProductKeyFeaturesSkeleton from "./productKeyFeatures/productKeyFeaturesSkeleton/ProductKeyFeaturesSkeleton";
 import ProductPreviewSkeleton from "../components/productPreview/productPreviewSkeleton/ProductPreviewSkeleton";
