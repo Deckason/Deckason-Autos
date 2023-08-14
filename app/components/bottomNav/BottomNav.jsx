@@ -1,5 +1,5 @@
 "use client"
-import { FaHome} from "react-icons/fa";
+import { FaFlag, FaHome} from "react-icons/fa";
 import styles from "./BottomNav.module.css"
 import Link from "next/link";
 import { GiWorld } from "react-icons/gi";
@@ -23,14 +23,7 @@ const BottomNav = () => {
                 </div>
                 <div className={styles.bottom_nav_box}>
                     <Link href={"/nigerian"}>
-                        <div className={styles.Bottom_nav_icon}>
-                            <Image className={styles.nigerFlag}
-                                    src={NigerFlag}
-                                    width={1}
-                                    height={5}
-                                    alt=""
-                            />
-                        </div>
+                        <FaFlag className={styles.Bottom_nav_icon}/>
                         <p className={styles.bottom_nav_name}>Nigerian</p>
                     </Link>
                 </div>
