@@ -5,6 +5,8 @@ import Services from "../Services/services";
 import Products from "../products/Products";
 // import { useAppContext } from "@/app/context/ContextProvider";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
+import { db } from "@/app/utils/firebaseConfiguration";
+import CardSkeleton from "../products/cardSkeleton/cardSkeleton";
 // import LandingPage from "./components/LandingPage/LandingPage";
 // import Logos from "./components/Logo/logos";
 // import Services from "./components/Services/services";
@@ -14,8 +16,9 @@ import { collection, getDocs, getFirestore } from "firebase/firestore";
 const HomePage = () => {
 
   const [products, setProducts] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
     // const { getDocument, collectionRef} = useAppContextxt() 
-    const db = getFirestore()
+    // const db = getFirestore()
     const collectionRef = collection(db, "Cars")
     
 
@@ -29,9 +32,10 @@ const HomePage = () => {
                 carProducts.push({...product.data(), id: product.id})
             });
             setProducts(carProducts)
-            connectStorageEmulator.log("Products",  carProducts)
+            setIsLoading(false)
         } catch (error) {
             console.log(error)
+            setIsLoading(false)
         }
     }
 
@@ -43,9 +47,8 @@ const HomePage = () => {
     <>
       <LandingPage />
       <Services />
-      <Products 
-        page={"Featured"}
-        products={products}/>
+      {isLoading?<CardSkeleton />
+        :(<Products page={"Featured"} products={products}/>)}
     </>
   );
 }

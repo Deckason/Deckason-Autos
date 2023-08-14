@@ -5,12 +5,15 @@ import Products from "../components/products/Products";
 import { useEffect, useState } from "react";
 import { useAppContext } from "../context/ContextProvider";
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
+import { db } from "../utils/firebaseConfiguration";
+import CardSkeleton from "../components/products/cardSkeleton/cardSkeleton";
 
 const ForeignUsed = () => {
 
     const [products, setProducts] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
     // const { getDocument, collectionRef} = useAppContext() 
-    const db = getFirestore()
+    // const db = getFirestore()
     const collectionRef = collection(db, "Cars")
 
     const getProducts = async ()=>{
@@ -22,8 +25,10 @@ const ForeignUsed = () => {
                 carProducts.push({...product.data(), id: product.id})
             });
             setProducts(carProducts)
+            setIsLoading(false)
         } catch (error) {
             console.log(error)
+            setIsLoading(false)
         }
     }
 
@@ -37,9 +42,8 @@ const ForeignUsed = () => {
                 <AsideNav />
             </div>
             <div className={`product_container ${styles.product_container}`}>
-                <Products 
-                    page={"Nigerian Used"}
-                    products={products}/>
+            {isLoading?<CardSkeleton />
+                :(<Products page={"Nigerian used"} products={products}/>)}
             </div>
         </div>
     );
