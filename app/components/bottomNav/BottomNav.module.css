@@ -19,7 +19,7 @@
 }
 
 .bottom_nav_box a,
-.extras{
+.category{
     color: var(--grey);
     width: 100%;
     display: flex;
@@ -31,7 +31,7 @@
 }
 
 .bottom_nav_box a p,
-.extras p{
+.category p{
     font-size: large;
 }
 
@@ -57,12 +57,12 @@
 
 @media only screen and (max-width: 450px){
     .bottom_nav_box a,
-    .extras{
+    .category{
         font-size: 1.5rem;
     }
 
     .bottom_nav_box a p,
-.extras p{
+.category p{
     font-size: small;
 }
 
