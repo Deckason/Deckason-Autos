@@ -6,7 +6,7 @@ import { GiWorld } from "react-icons/gi";
 import { TbCategory } from "react-icons/tb";
 import NigerFlag from "./media/NigerFlag.jpeg"
 import Image from "next/image";
-import { MdCurrencyExchange } from "react-icons/md";
+import { MdCurrencyExchange, MdOutlineFiberNew } from "react-icons/md";
 import Extras from "../Extras/Extras";
 import { useState } from "react";
 const BottomNav = () => {
@@ -34,10 +34,10 @@ const BottomNav = () => {
                     <p className={styles.bottom_nav_name}>Foreign</p>
                 </Link>
                 </div>
-                <div className={styles.bottom_nav_box} onClick={()=>setActiveBtn("exchangeBtn")}>
-                <Link href={"/"}>
-                    <MdCurrencyExchange className={`${styles.Bottom_nav_icon} ${activeBtn === "exchangeBtn" ? styles.active:""}`}/>
-                    <p className={styles.bottom_nav_name}>Sell</p>
+                <div className={styles.bottom_nav_box} onClick={()=>setActiveBtn("newBtn")}>
+                <Link href={"/new"}>
+                    <MdOutlineFiberNew className={`${styles.Bottom_nav_icon} ${activeBtn === "newBtn" ? styles.active:""}`}/>
+                    <p className={styles.bottom_nav_name}>New</p>
                 </Link>
                 </div>
                 <div className={styles.bottom_nav_box} onClick={()=>{setActiveBtn("categoryBtn"), setExtras(!extras)}}>

@@ -14,6 +14,10 @@
     height: 500px;
 }
 
+.preview_slider img{
+    object-fit: scale-down;
+}
+
 .arrow_nav{
     position: absolute;
     width: 100%;
