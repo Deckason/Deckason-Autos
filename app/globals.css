@@ -34,14 +34,6 @@ body{
   background: var(--background);
 }
 
-/* .container{
-  width: 100%;
-}
-
-.flex-container{
-  display: flex;
-} */
-
 a{
   text-decoration: none;
 }
