@@ -88,7 +88,6 @@ img{
   flex-direction: column;
   box-shadow: -.1px .1px 5px rgb(211, 207, 207);
   border-radius: 5px;
-  padding: 1rem;
   background: var(--white);
 }
 
@@ -98,6 +97,7 @@ img{
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  padding: 1rem;
 }
 
 .aside_header h5{
@@ -108,7 +108,7 @@ img{
 
 .aside_body{
   width: 100%;
-  padding-top: .5rem;
+  padding: .5rem;
   color: var(--grey);
   flex-direction: column;
   gap: .5rem;

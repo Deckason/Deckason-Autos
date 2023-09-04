@@ -22,7 +22,7 @@ const Footer = () => {
                     <Link target="_blank" href={"https://twitter.com/Deckason2"}><FaTwitterSquare className={`${styles.icon}`}/></Link>
                     <Link target="_blank"  href={"https://api.whatsapp.com/send?phone=2348165143702"}><FaWhatsappSquare className={`${styles.icon}`}/></Link>
                     {/* <Link target="_blank" href={""}><FaLinkedinIn className={`${styles.icon}`}/></Link> */}
-                    <Link target="_blank" href={"https://www.instagram.com/deckason_autos/feed/"}><FaInstagramSquare className={`${styles.icon}`}/></Link>
+                    <Link target="_blank" href={"https://www.instagram.com/deckason_autos"}><FaInstagramSquare className={`${styles.icon}`}/></Link>
                 </div>
                 <div className={styles.footer_contact}>
                     <div className={styles.contact}>

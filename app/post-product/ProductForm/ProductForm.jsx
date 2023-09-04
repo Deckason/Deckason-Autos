@@ -41,29 +41,25 @@ const ProductForm = () => {
         resolver: yupResolver(schema)
     })
     
-    const uploadDocImages = async(array, id)=>{
+    const uploadDocImages = async(id)=>{
         try {
+            let promises = []
             for (let i = 0; i < files.length; i++) {
                 const imageRef = ref(storage, `images/${id}/${files[i].name}${Date.now()}`)
                 const uploadImg = await uploadBytesResumable(imageRef, files[i])
                 .then((snapshot)=>{
-                    getDownloadURL(snapshot.ref).then((url)=>{
-                        array.push(...[url])
-                    }).catch(err=>{
-                        setIsLoading(false)
-                        setErr(true)
-                        setErrMsg(err.message)
-                        console.log(err.message)
-                    })
-                }).catch((err)=>{
+                    const url = getDownloadURL(snapshot.ref)
+                    promises.push(url)
+                }).catch(err=>{
                     setIsLoading(false)
                     setErr(true)
                     setErrMsg(err.message)
                     console.log(err.message)
                 })
             }
-            updateDoc(doc(db, "Cars", id), {
-                productImages: array,
+            const urls = await Promise.all(promises)
+            await updateDoc(doc(db, "Cars", id), {
+                productImages: urls,
             }).then(res=>{
                 setSuccess(true)
                 setSuccessMsg("Uploads-successful")
@@ -88,7 +84,7 @@ const ProductForm = () => {
             setIsLoading(true)
             setErr(false)
             setSuccess(false)
-            let urlArray = []
+            
 
            if (files.length>0) {
 
@@ -96,7 +92,7 @@ const ProductForm = () => {
 
                 if (doc) {
                     const docId = doc.id;
-                    const imgesUploaded = await uploadDocImages(urlArray, docId)
+                    const imgesUploaded = await uploadDocImages(docId)
                 }else{
                     setIsLoading(false)
                     setErr(true)

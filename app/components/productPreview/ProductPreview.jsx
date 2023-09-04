@@ -68,7 +68,7 @@ const ProductPreview = ({images}) => {
                         key={key} onClick={()=>setImgIndex(images.indexOf(image))}>
                         <Image
                         src={image}
-                        width={100}
+                        width={300}
                         height={100}
                         alt="img"
                         />

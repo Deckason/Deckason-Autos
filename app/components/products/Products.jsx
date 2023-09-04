@@ -9,6 +9,17 @@ import {TbCurrencyNaira} from "react-icons/tb"
 
 
 const Products = ({products, page}) => {
+
+const formatPrice = (price)=>{
+    let formattedPrice = price.toLocaleString('en-US', {
+      style: 'decimal', // Use decimal style
+      minimumFractionDigits: 0, // Don't display decimal places
+      maximumFractionDigits: 0, // Don't display decimal places
+    });
+    return formattedPrice
+// console.log(formattedNumber); // Outputs: "2,500,000"
+}
+
     
     return (
         <>
@@ -34,7 +45,7 @@ const Products = ({products, page}) => {
                                         src={product.productImages[0]}
                                         className={styles.img_wrapper}
                                     />
-                                    <p className={styles.price_tag}><TbCurrencyNaira/>{product.price}</p>
+                                    <p className={styles.price_tag}><TbCurrencyNaira/>{formatPrice(product.price)}</p>
                                     </div>
                                 </Link>
                                 <div className={styles.product_description}>
@@ -50,7 +61,7 @@ const Products = ({products, page}) => {
                                         </div>
                                     </div>
                                     <div className={styles.price}>
-                                        <p><TbCurrencyNaira/>{product.price}</p>
+                                        <p><TbCurrencyNaira/>{formatPrice(product.price)}</p>
                                         <Link href={`/${product.id}`}><button className={`btn`}>View Details</button></Link>
                                     </div>
                                 </div>

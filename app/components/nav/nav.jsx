@@ -7,11 +7,13 @@ import Image from "next/image";
 
 const Nav = () => {
     const [activeBtn, setActiveBtn] = useState(null)
+    const [search, setSearch] = useState("")
+
     return (
         <>
             <header className={styles.header}>
                 <div className={styles.header_logo} onClick={()=>setActiveBtn("homeBtn") }>
-                    <Link href={"/"}><Image src={logo} width={300} height={100}/></Link>
+                    <Link href={"/"}><Image src={logo} width={500} height={100}/></Link>
                 </div>
                 <ul
                     className={`${styles.header_ul}`}>
@@ -30,8 +32,8 @@ const Nav = () => {
                 </ul>
                 <div className={styles.header_search}>
                     <div className={styles.search_wrapper}>
-                        <input type="text" placeholder="Search..."/>
-                        <button className={`btn ${styles.btn}`}> Search </button>
+                        <input type="text" placeholder="Search..." onChange={e=>setSearch(e.target.value)}/>
+                        <Link href={{pathname: "/search", query: {search: search}}} className={`btn ${styles.btn}`} > Search </Link>
                     </div>
                 </div>
             </header>

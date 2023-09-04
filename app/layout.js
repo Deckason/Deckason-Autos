@@ -19,7 +19,9 @@ export default function RootLayout({ children }) {
       <body >
         {/* <ContextProvider> */}
         <Nav />
-        {children}
+        <div style={{minHeight: "80vh"}}>
+          {children}
+        </div>
         <BottomNav />
         <Footer />
         {/* added the develope branch */}

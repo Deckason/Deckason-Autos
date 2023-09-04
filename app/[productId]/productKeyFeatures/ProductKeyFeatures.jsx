@@ -4,10 +4,20 @@ import Link from "next/link";
 
 const ProductKeyFeatures = ({product}) => {
 
+    // Message to be dropped in the vendors whatsApp
     const carDetails = `${product.year} ${product.make} ${product.model} ${product.condition}\n${window.location.href}`; //Car details
     const encodedMessage = encodeURIComponent("I'm interested in the car with details:\n" + carDetails);
     
     const whatsappLink = "https://api.whatsapp.com/send?phone=2348165143702&text=" + encodedMessage;
+
+    const formatPrice = (price)=>{
+        let formattedPrice = price.toLocaleString('en-US', {
+          style: 'decimal', // Use decimal style
+          minimumFractionDigits: 0, // Don't display decimal places
+          maximumFractionDigits: 0, // Don't display decimal places
+        });
+        return formattedPrice
+    }
     
     // Now you can use the 'whatsappLink' in your HTML or JavaScript code
 
@@ -25,7 +35,7 @@ const ProductKeyFeatures = ({product}) => {
             <div className={styles.primary_features}>
                 {product.state && <h3>{`${product.region} ${product.lga} ${product.state}`}</h3>}
                 {product.make && <h1>{`${product.year} ${product.make} ${product.model}`}</h1>}
-                {product.price && <h2>{product.price}</h2>}
+                {product.price && <h2>{formatPrice(product.price)}</h2>}
             </div>
             <div className={styles.secondary_features}>
                 {product.condition && <h5>{product.condition}</h5>}

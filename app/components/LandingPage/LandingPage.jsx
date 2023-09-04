@@ -29,6 +29,8 @@ const LandingPage = () => {
                         <Image className={styles.img}
                             src={LandingPageImg}
                             alt="Landing page image"
+                            width={1000}
+                            height={500}
                         />
                     </div>
                 </div>
