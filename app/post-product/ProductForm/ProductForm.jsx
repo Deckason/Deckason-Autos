@@ -43,13 +43,13 @@ const ProductForm = () => {
     
     const uploadDocImages = async(id)=>{
         try {
-            let promises = []
+            let imgUrls = []
             for (let i = 0; i < files.length; i++) {
                 const imageRef = ref(storage, `images/${id}/${files[i].name}${Date.now()}`)
                 const uploadImg = await uploadBytesResumable(imageRef, files[i])
                 .then((snapshot)=>{
                     const url = getDownloadURL(snapshot.ref)
-                    promises.push(url)
+                    imgUrls.push(url)
                 }).catch(err=>{
                     setIsLoading(false)
                     setErr(true)
@@ -57,7 +57,7 @@ const ProductForm = () => {
                     console.log(err.message)
                 })
             }
-            const urls = await Promise.all(promises)
+            const urls = await Promise.all(imgUrls)
             await updateDoc(doc(db, "Cars", id), {
                 productImages: urls,
             }).then(res=>{
