@@ -49,6 +49,7 @@
     max-width: 500px;
     margin: 5px;
     height: 20rem;
+    padding-bottom: 1rem;
     border-radius: 5px;
     flex-grow: 1;
     overflow: hidden;
@@ -59,11 +60,12 @@
  .img_wrapper{
     width:100%;
  }
+ 
  .product_card .product_img{
     position: relative;
     width: 100%;
     height: 65%;
-    
+    margin-bottom: .5rem;
  }
 
 
@@ -72,7 +74,7 @@
     bottom: 0;
     right: 0;
     display: flex;
-    background: var(--black);
+    background: rgba(0,0,0, .4);
     color: var(--white);
     padding: .2rem .5rem;
  }
@@ -82,8 +84,8 @@
     height: 35%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    padding: .5rem;
+    justify-content: space-between;
+    padding: 0 .5rem;
  }
 
  .product_description .other_details{
@@ -122,14 +124,15 @@
     font-weight: bolder;
  }
 
- .price button{
+ .price a{
     width: 10rem;
+    text-align: center;
  }
 
  @media screen and (max-width: 768px) {
-   .price button{
+   .price a{
       width: auto;
-      padding: .5rem 2rem;
+      padding: .2rem 2rem;
    }
  }
 

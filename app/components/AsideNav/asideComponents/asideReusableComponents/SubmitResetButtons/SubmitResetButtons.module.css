@@ -3,6 +3,6 @@
     justify-content: space-between;
 }
 
-.reset_submit_buttons button{
-    width: 30%;
+.reset_submit_buttons a{
+	color: var(--button-bg)
 }

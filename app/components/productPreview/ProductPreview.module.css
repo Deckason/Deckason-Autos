@@ -12,6 +12,7 @@
     justify-content: center;
     align-items: center;
     height: 500px;
+    background: rgba(0,0,0, .4);
 }
 
 .preview_slider img{
@@ -48,9 +49,10 @@
 
 .preview{
     flex-grow: 1;
-    max-width: 200px;
-    min-width: 100px;
-    height: 100px;
+    max-width: 100px;
+    min-width: 50px;
+    max-height: 100px;
+    min-height: 50px;
     cursor: pointer;
 }
 
@@ -67,5 +69,20 @@
 @media screen and (max-width: 850px) {
     .preview_slider{
         height: 350px;
+    }
+    .arrow_nav span{
+        padding: 3rem 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .preview{
+    max-width: 50px;
+    min-width: 30px;
+    max-height: 50px;
+    min-height: 30px;
+}
+    .arrow_nav span{
+        padding: 1rem .5rem;
     }
 }

@@ -62,7 +62,7 @@ const formatPrice = (price)=>{
                                     </div>
                                     <div className={styles.price}>
                                         <p><TbCurrencyNaira/>{formatPrice(product.price)}</p>
-                                        <Link href={`/${product.id}`}><button className={`btn`}>View Details</button></Link>
+                                        <Link href={`/${product.id}`} className={`btn`}>View Details</Link>
                                     </div>
                                 </div>
                             </div>
