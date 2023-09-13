@@ -62,11 +62,15 @@ const SearchPage = () => {
   return (
     <div className={`container ${styles.search_container}`}>
         <div className={`aside_container ${styles.aside_container}`}>
-            <AsideNav />
+            <AsideNav navData={products}/>
         </div>
         <div className={`product_container ${styles.product_container}`}>
-            {isLoading ? <CardSkeleton />
-                : <Products page={`Search results for ${searchParam}`} products={products}/>}
+
+            {isLoading && <CardSkeleton />}
+            {products.length > 0 ?
+            <Products page={`Results for ${searchParam}`} products={products}/>:
+            <Products page={"Result not found"} products={products}/>}
+                
         </div>
     </div>
   )

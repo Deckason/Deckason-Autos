@@ -37,8 +37,10 @@ const HomePage = () => {
     <>
       <LandingPage />
       <Services />
-      {isLoading ? <CardSkeleton />
-        : <Products page={"Featured"} products={products}/>}
+      {isLoading && <CardSkeleton />}
+      {products.length > 0 ?
+      <Products page={"Featured"} products={products}/>:
+      <Products page={"Product not yet available"} products={products}/>}
     </>
   );
 }

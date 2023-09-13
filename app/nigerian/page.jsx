@@ -39,8 +39,10 @@ const ForeignUsed = () => {
                 <AsideNav />
             </div>
             <div className={`product_container ${styles.product_container}`}>
-            {isLoading ? <CardSkeleton />
-                : <Products page={"Nigerian used"} products={products}/>}
+            {isLoading && <CardSkeleton />}
+            {products.length > 0 ?
+            <Products page={"Nigerian used"} products={products}/>:
+            <Products page={"Product not yet available"} products={products}/>}
             </div>
         </div>
     );
